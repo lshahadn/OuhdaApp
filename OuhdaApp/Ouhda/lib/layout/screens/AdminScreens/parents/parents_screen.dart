@@ -1,6 +1,5 @@
 import 'package:bustracking/controllers/admin/admin_controller.dart';
 import 'package:bustracking/controllers/parent/parent_controller.dart';
-import 'package:bustracking/data/app_data.dart';
 import 'package:bustracking/data/models/body/bus_model.dart';
 import 'package:bustracking/data/models/body/child_info.dart';
 import 'package:bustracking/data/models/body/route_model.dart';

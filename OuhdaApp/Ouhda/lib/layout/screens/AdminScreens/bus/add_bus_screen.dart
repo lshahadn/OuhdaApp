@@ -155,6 +155,7 @@ class _AddBusScreenState extends State<AddBusScreen> {
                                 : const Center(
                                     child: CircularProgressIndicator())),
                       ]),
+                    
                     ]),
                   ),
                   const SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
@@ -196,7 +197,7 @@ class _AddBusScreenState extends State<AddBusScreen> {
     } else if (adminController.selectedRoute == null) {
       showCustomSnackBar('Select Route');
     } else if (adminController.selectedRoute!.id == "0") {
-      showCustomSnackBar('Select Route');
+        showCustomSnackBar('Select Route');
     } else {
       print("object");
       adminController
@@ -212,5 +213,4 @@ class _AddBusScreenState extends State<AddBusScreen> {
       });
     }
   }
-} 
-  // End 
+}

@@ -1,7 +1,7 @@
 import 'package:bustracking/controllers/auth_controller.dart';
 import 'package:bustracking/controllers/driver/driver_controller.dart';
 import 'package:bustracking/controllers/parent/parent_controller.dart';
-import 'package:bustracking/data/app_data.dart';
+
 import 'package:bustracking/data/models/body/child_info.dart';
 import 'package:bustracking/data/models/body/user_model.dart';
 import 'package:bustracking/helper/route_helper.dart';
@@ -389,197 +389,69 @@ class _HomeDriverScreenState extends State<HomeDriverScreen>
             right: 10,
             child: CustomBtn(
               title: statusStd(model),
-              onPressed: () {
+              onPressed: () async {
                 if (model.status == 'at_home' && model.status != 'absent') {
                   driverController.markAs(
                       "picked", model.id, model.name, model.parentId, 'to_bus');
-                  driverController.getDataOf('all').then((value) {
-                    // Update the 'All' tab with the new data
-                    _tabs[0] = Tab(
-                      text: 'All (${driverController.allLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('picked').then((value) {
-                    // Update the 'Picked' tab with the new data
-                    _tabs[1] = Tab(
-                      text: 'Picked (${driverController.pickedLength})',
-                    );
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    print(driverController.pickedLength);
-                    setState(() {});
-                  });
-                  driverController.getDataOf('drop').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[2] = Tab(
-                      text: 'Dropped (${driverController.droppedLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('absent').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[3] = Tab(
-                      text: 'Absent (${driverController.absentLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
                 } else if (model.status == 'picked' &&
                     model.status != 'absent' &&
                     model.goOrReturn == 'to_bus') {
                   driverController.markAs("at_school", model.id, model.name,
                       model.parentId, 'at_school');
-                  driverController.getDataOf('all').then((value) {
-                    // Update the 'All' tab with the new data
-                    _tabs[0] = Tab(
-                      text: 'All (${driverController.allLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('picked').then((value) {
-                    // Update the 'Picked' tab with the new data
-                    _tabs[1] = Tab(
-                      text: 'Picked (${driverController.pickedLength})',
-                    );
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    print(driverController.pickedLength);
-                    setState(() {});
-                  });
-                  driverController.getDataOf('drop').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[2] = Tab(
-                      text: 'Dropped (${driverController.droppedLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('absent').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[3] = Tab(
-                      text: 'Absent (${driverController.absentLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
                 } else if (model.status == 'at_school' &&
                     model.status != 'absent') {
                   driverController.markAs("picked", model.id, model.name,
                       model.parentId, 'return_to_bus');
-                  driverController.getDataOf('all').then((value) {
-                    // Update the 'All' tab with the new data
-                    _tabs[0] = Tab(
-                      text: 'All (${driverController.allLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('picked').then((value) {
-                    // Update the 'Picked' tab with the new data
-                    _tabs[1] = Tab(
-                      text: 'Picked (${driverController.pickedLength})',
-                    );
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    print(driverController.pickedLength);
-                    setState(() {});
-                  });
-                  driverController.getDataOf('drop').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[2] = Tab(
-                      text: 'Dropped (${driverController.droppedLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('absent').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[3] = Tab(
-                      text: 'Absent (${driverController.absentLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
                 } else if (model.status == 'picked' &&
                     model.goOrReturn == 'return_to_bus' &&
                     model.status != 'absent') {
-                  driverController.markAs("drop", model.id, model.name,
+                   driverController.markAs("drop", model.id, model.name,
                       model.parentId, 'return_to_parent');
-                  driverController.getDataOf('all').then((value) {
-                    // Update the 'All' tab with the new data
-                    _tabs[0] = Tab(
-                      text: 'All (${driverController.allLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('picked').then((value) {
-                    // Update the 'Picked' tab with the new data
-                    _tabs[1] = Tab(
-                      text: 'Picked (${driverController.pickedLength})',
-                    );
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    print(driverController.pickedLength);
-                    setState(() {});
-                  });
-                  driverController.getDataOf('drop').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[2] = Tab(
-                      text: 'Dropped (${driverController.droppedLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
-                  driverController.getDataOf('absent').then((value) {
-                    // Update the 'Absent' tab with the new data
-                    _tabs[3] = Tab(
-                      text: 'Absent (${driverController.absentLength})',
-                    );
-                    // Update the tab controller to reflect the new number of tabs
-                    _tabController =
-                        TabController(length: _tabs.length, vsync: this);
-                    // Call setState to trigger a rebuild of the widget tree
-                    setState(() {});
-                  });
                 }
+
+                driverController.getDataOf('all').then((value) {
+                  // Update the 'All' tab with the new data
+                  _tabs[0] = Tab(
+                    text: 'All (${driverController.allLength})',
+                  );
+                  // Update the tab controller to reflect the new number of tabs
+                  _tabController =
+                      TabController(length: _tabs.length, vsync: this);
+                  // Call setState to trigger a rebuild of the widget tree
+                  setState(() {});
+                });
+                driverController.getDataOf('picked').then((value) {
+                  // Update the 'Picked' tab with the new data
+                  _tabs[1] = Tab(
+                    text: 'Picked (${driverController.pickedLength})',
+                  );
+                  _tabController =
+                      TabController(length: _tabs.length, vsync: this);
+                  print(driverController.pickedLength);
+                  setState(() {});
+                });
+                driverController.getDataOf('drop').then((value) {
+                  // Update the 'Absent' tab with the new data
+                  _tabs[2] = Tab(
+                    text: 'Dropped (${driverController.droppedLength})',
+                  );
+                  // Update the tab controller to reflect the new number of tabs
+                  _tabController =
+                      TabController(length: _tabs.length, vsync: this);
+                  // Call setState to trigger a rebuild of the widget tree
+                  setState(() {});
+                });
+                driverController.getDataOf('absent').then((value) {
+                  // Update the 'Absent' tab with the new data
+                  _tabs[3] = Tab(
+                    text: 'Absent (${driverController.absentLength})',
+                  );
+                  // Update the tab controller to reflect the new number of tabs
+                  _tabController =
+                      TabController(length: _tabs.length, vsync: this);
+                  // Call setState to trigger a rebuild of the widget tree
+                  setState(() {});
+                });
               },
               fullWidth: false,
               height: 37,

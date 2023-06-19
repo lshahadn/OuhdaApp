@@ -5,7 +5,7 @@ class BusModel {
   String? id;
   String? bus_number;
   RouteModel? route;
-  String? created_at;
+  String? created_at; 
 
   BusModel({
     this.id,

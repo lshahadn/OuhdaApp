@@ -1,6 +1,6 @@
 import 'package:bustracking/controllers/auth_controller.dart';
 import 'package:bustracking/controllers/parent/parent_controller.dart';
-import 'package:bustracking/data/app_data.dart';
+
 import 'package:bustracking/data/models/body/child_info.dart';
 import 'package:bustracking/data/models/body/user_model.dart';
 import 'package:bustracking/helper/route_helper.dart';
@@ -92,7 +92,7 @@ class _HomeParentScreenState extends State<HomeParentScreen> {
                   Row(
                     children: [
                       Container(
-                        width: 130,
+                        width: 90,
                         child: Text(
                           '@${parentController.getUsername()}',
                           style: TextStyle(

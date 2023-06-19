@@ -20,8 +20,7 @@ class AppConstants {
   static const String PHONE = 'user_PHONE';
   
   
-  
-  
+
   static const String USER_COUNTRY_CODE = 'user_country_code';
   static const String NOTIFICATION = 'notification';
   static const String SEARCH_HISTORY = 'search_history';

@@ -88,6 +88,7 @@ class AdminRepo {
         .collection('bus')
         .add(model.toJson())
         .then((value) {
+          
       FirebaseFirestore.instance
           .collection('bus')
           .doc(value.id)

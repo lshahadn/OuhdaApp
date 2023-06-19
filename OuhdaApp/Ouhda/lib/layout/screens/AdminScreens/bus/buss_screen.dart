@@ -1,6 +1,5 @@
 import 'package:bustracking/controllers/admin/admin_controller.dart';
 import 'package:bustracking/controllers/parent/parent_controller.dart';
-import 'package:bustracking/data/app_data.dart';
 import 'package:bustracking/data/models/body/bus_model.dart';
 import 'package:bustracking/data/models/body/child_info.dart';
 import 'package:bustracking/data/models/body/school_model.dart';
@@ -175,7 +174,9 @@ class _BussScreenState extends State<BussScreen> {
       clipBehavior: Clip.none,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            print("object");
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),

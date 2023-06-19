@@ -49,11 +49,13 @@ class NotificationsScreen extends StatelessWidget {
               Query query = FirebaseFirestore.instance
                   .collection("users")
                   .doc(driverController.getCurrentUserID())
-                  .collection('notifications');
+                  .collection('notifications')
+                  .orderBy('created_at', descending: true);
+
               return Container(
                 padding: const EdgeInsetsDirectional.only(
                   top: 20,
-                  bottom: 20,
+                  bottom: 30,
                   start: 10,
                   end: 10,
                 ),
@@ -77,6 +79,7 @@ class NotificationsScreen extends StatelessWidget {
       child: Container(
         width: double.infinity,
         padding: const EdgeInsetsDirectional.all(10),
+        margin: const EdgeInsetsDirectional.only(bottom: 10),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadiusDirectional.circular(20),
@@ -147,6 +150,7 @@ class NotificationsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                 
                 ],
               ),
             ),

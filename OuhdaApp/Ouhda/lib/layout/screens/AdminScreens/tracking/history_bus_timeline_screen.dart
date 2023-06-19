@@ -33,7 +33,8 @@ class BusHistoryTimeline extends StatelessWidget {
               //     DateFormat('yyyy-MM-dd hh:mm:ss a').format(dateTime1);
 
               String return_at_str = '';
-              if (data['return_at_str'] != null) return_at_str = data['return_at_str'];
+              if (data['return_at_str'] != null)
+                return_at_str = data['return_at_str'];
               // DateTime dateTime2 = DateTime.parse(return_at_str);
 
               // String return_at =
@@ -60,8 +61,10 @@ class BusHistoryTimeline extends StatelessWidget {
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             Container(
-                              width: 200,
-                              child: Text('${data['driver_id']}',)),
+                                width: 200,
+                                child: Text(
+                                  '${data['driver_id']}',
+                                )),
                           ],
                         ),
                         Text(
@@ -122,64 +125,68 @@ class BusHistoryTimeline extends StatelessWidget {
                             Text('${data['going_duration']}'),
                           ],
                         ),
-                        Text(
-                          'Going Data: ',
-                          style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.date_range,
-                              color: Colors.amber,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Started At: ',
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            Text('${data['return_at']}'),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.date_range,
-                              color: Colors.amber,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'End At: ',
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            Text('${data['return_end_at']}'),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.timer,
-                              color: Colors.amber,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Duration: ',
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            Text('${data['return_duration']}'),
-                          ],
-                        ),
+                        if (data['return_at'] != null)
+                          Text(
+                            'Going Data: ',
+                            style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue),
+                          ),
+                        if (data['return_at'] != null)
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.date_range,
+                                color: Colors.amber,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Started At: ',
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              Text('${data['return_at']}'),
+                            ],
+                          ),
+                        if (data['return_at'] != null)
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.date_range,
+                                color: Colors.amber,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'End At: ',
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              Text('${data['return_end_at']}'),
+                            ],
+                          ),
+                        if (data['return_at'] != null)
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.timer,
+                                color: Colors.amber,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Duration: ',
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              Text('${data['return_duration']}'),
+                            ],
+                          ),
                       ],
                     ),
                   ),
